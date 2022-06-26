@@ -1,0 +1,15 @@
+[gd_scene format=2]
+
+[node name="Label" type="Label"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.03
+margin_left = -74.0
+margin_top = 87.9354
+margin_right = 74.0
+margin_bottom = 87.9354
+text = "THIS IS MY FIRST GAME"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

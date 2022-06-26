@@ -1,0 +1,127 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://src/themes/theme12.tres" type="Theme" id=1]
+[ext_resource path="res://src/themes/theme6.tres" type="Theme" id=2]
+[ext_resource path="res://src/UserInterfaces/btn_Quit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UserInterfaces/Label.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UserInterfaces/btn_Play.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Screens/DiedScreen.gd" type="Script" id=6]
+[ext_resource path="res://src/imagesForPage/wind_spritesheet.png" type="Texture" id=8]
+
+[sub_resource type="GradientTexture" id=10]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 320, 180 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 8 )
+region = Rect2( 320, 0, 320, 180 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 180, 320, 180 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 8 )
+region = Rect2( 320, 180, 320, 180 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 360, 320, 180 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 8 )
+region = Rect2( 320, 360, 320, 180 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 540, 320, 180 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 8 )
+region = Rect2( 320, 540, 320, 180 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 10.0
+} ]
+
+[node name="DiedScreen" type="Control"]
+margin_right = 320.0
+margin_bottom = 180.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 0.529724
+margin_top = 0.883276
+margin_right = 320.53
+margin_bottom = 181.883
+texture = SubResource( 10 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimWind" type="AnimatedSprite" parent="TextureRect"]
+position = Vector2( 159.47, 89.1167 )
+frames = SubResource( 9 )
+animation = "New Anim"
+frame = 1
+playing = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.5297
+margin_top = -21.3833
+margin_right = 49.4703
+margin_bottom = 56.6167
+rect_pivot_offset = Vector2( 50, 0 )
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn_Play" parent="TextureRect/VBoxContainer" instance=ExtResource( 5 )]
+margin_right = 100.0
+margin_bottom = 37.0
+text = "play Again"
+next_scene_path = "res://src/Screens/MainScreen.tscn"
+
+[node name="btn_Quit" parent="TextureRect/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 41.0
+margin_right = 100.0
+margin_bottom = 78.0
+
+[node name="Label" parent="TextureRect" instance=ExtResource( 4 )]
+margin_left = -121.727
+margin_top = 12.3482
+margin_right = 121.273
+margin_bottom = 35.9482
+theme = ExtResource( 1 )
+text = "PATHETIC"
+
+[node name="Label2" parent="TextureRect" instance=ExtResource( 4 )]
+margin_left = -121.727
+margin_top = 45.3482
+margin_right = 121.273
+margin_bottom = 68.9482
+theme = ExtResource( 2 )
+text = "Score 		: %s."
+
+[node name="Label3" parent="TextureRect" instance=ExtResource( 4 )]
+margin_left = -121.727
+margin_top = 54.2572
+margin_right = 121.273
+margin_bottom = 77.8572
+theme = ExtResource( 2 )
+text = "Times 	: %s."

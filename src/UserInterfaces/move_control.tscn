@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/imagesForPage/arrowControl.png" type="Texture" id=1]
+
+[node name="move_control" type="CanvasLayer"]
+
+[node name="btn_left" type="TouchScreenButton" parent="."]
+position = Vector2( 3.74576, 125.109 )
+normal = ExtResource( 1 )
+action = "move_left"
+
+[node name="btn_right" type="TouchScreenButton" parent="."]
+position = Vector2( 107.878, 174.553 )
+rotation = -3.14159
+normal = ExtResource( 1 )
+action = "move_right"
+
+[node name="btn_up" type="TouchScreenButton" parent="."]
+position = Vector2( 312.397, 98.8883 )
+rotation = 1.5708
+normal = ExtResource( 1 )
+action = "jump"

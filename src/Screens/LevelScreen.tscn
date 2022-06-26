@@ -1,0 +1,108 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://src/themes/theme12.tres" type="Theme" id=1]
+[ext_resource path="res://src/imagesForPage/chooseMenu.png" type="Texture" id=2]
+[ext_resource path="res://src/icons/bawangPutih.png" type="Texture" id=3]
+[ext_resource path="res://src/icons/kunyit.png" type="Texture" id=4]
+[ext_resource path="res://src/UserInterfaces/btn_Play.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/icons/cabe.png" type="Texture" id=6]
+[ext_resource path="res://src/icons/kelapa.png" type="Texture" id=7]
+[ext_resource path="res://src/icons/daging.png" type="Texture" id=8]
+[ext_resource path="res://src/icons/daunBawang.png" type="Texture" id=9]
+[ext_resource path="res://src/themes/theme6.tres" type="Theme" id=11]
+
+[node name="MainScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.235962
+margin_top = 0.471939
+margin_right = -0.235962
+margin_bottom = 0.471939
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chooseMenu" type="Sprite" parent="."]
+position = Vector2( 160, 90 )
+texture = ExtResource( 2 )
+
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_left = 13.0
+margin_top = 26.0
+margin_right = 144.0
+margin_bottom = 153.0
+theme = ExtResource( 11 )
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn_level_1" parent="GridContainer" instance=ExtResource( 5 )]
+margin_right = 63.0
+margin_bottom = 39.0
+custom_colors/font_color_disabled = Color( 0, 0.47451, 0.0313726, 1 )
+text = "Level 1"
+icon = ExtResource( 3 )
+next_scene_path = "res://src/levels/lv0.tscn"
+
+[node name="btn_level_2" parent="GridContainer" instance=ExtResource( 5 )]
+margin_left = 67.0
+margin_right = 131.0
+margin_bottom = 39.0
+text = "Level 2"
+icon = ExtResource( 6 )
+next_scene_path = ""
+
+[node name="btn_level_3" parent="GridContainer" instance=ExtResource( 5 )]
+margin_top = 43.0
+margin_right = 63.0
+margin_bottom = 82.0
+text = "level 3"
+icon = ExtResource( 8 )
+next_scene_path = ""
+
+[node name="btn_level_4" parent="GridContainer" instance=ExtResource( 5 )]
+margin_left = 67.0
+margin_top = 43.0
+margin_right = 131.0
+margin_bottom = 82.0
+text = "level 4"
+icon = ExtResource( 9 )
+next_scene_path = ""
+
+[node name="btn_level_5" parent="GridContainer" instance=ExtResource( 5 )]
+margin_top = 86.0
+margin_right = 63.0
+margin_bottom = 125.0
+text = "level 5"
+icon = ExtResource( 7 )
+next_scene_path = ""
+
+[node name="btn_level_6" parent="GridContainer" instance=ExtResource( 5 )]
+margin_left = 67.0
+margin_top = 86.0
+margin_right = 131.0
+margin_bottom = 125.0
+text = "level 6"
+icon = ExtResource( 4 )
+next_scene_path = ""
+
+[node name="Label" type="Label" parent="."]
+margin_left = 11.6589
+margin_top = 5.96058
+margin_right = 159.659
+margin_bottom = 20.9606
+theme = ExtResource( 1 )
+text = "Choose Level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn_level_7" parent="." instance=ExtResource( 5 )]
+margin_left = 264.333
+margin_top = 4.33484
+margin_right = 316.333
+margin_bottom = 27.3348
+theme = ExtResource( 1 )
+text = "Return"
+next_scene_path = "res://src/Screens/MainScreen.tscn"

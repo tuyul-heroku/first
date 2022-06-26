@@ -1,0 +1,116 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://src/themes/theme12.tres" type="Theme" id=1]
+[ext_resource path="res://src/imagesForPage/wind_spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://src/imagesForPage/MainPage.png" type="Texture" id=3]
+[ext_resource path="res://src/UserInterfaces/btn_Quit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UserInterfaces/btn_Play.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/themes/theme25.tres" type="Theme" id=6]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 320, 180 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 320, 0, 320, 180 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 180, 320, 180 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 320, 180, 320, 180 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 360, 320, 180 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 320, 360, 320, 180 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 540, 320, 180 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 320, 540, 320, 180 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 10.0
+} ]
+
+[node name="MainScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 0.529724
+margin_top = 0.883276
+margin_right = 320.53
+margin_bottom = 181.883
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimWind" type="AnimatedSprite" parent="."]
+position = Vector2( 160, 90 )
+frames = SubResource( 9 )
+animation = "New Anim"
+frame = 2
+playing = true
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.212851
+anchor_top = 0.0981044
+anchor_right = 0.936851
+anchor_bottom = 0.406104
+margin_left = -66.4306
+margin_top = -2.49967
+margin_right = 14.8893
+margin_bottom = 7.06033
+rect_scale = Vector2( 1.0078, 1.01205 )
+theme = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Rendang
+Adventure"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -20.0
+margin_right = 50.0
+margin_bottom = 58.0
+rect_pivot_offset = Vector2( 50, 0 )
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn_Play" parent="VBoxContainer" instance=ExtResource( 5 )]
+margin_right = 100.0
+margin_bottom = 37.0
+next_scene_path = "res://src/Screens/LevelScreen.tscn"
+
+[node name="btn_Quit" parent="VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 41.0
+margin_right = 100.0
+margin_bottom = 78.0

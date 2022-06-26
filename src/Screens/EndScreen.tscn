@@ -1,0 +1,126 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://src/UserInterfaces/Label.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/UserInterfaces/btn_Quit.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UserInterfaces/btn_Play.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/imagesForPage/wind_spritesheet.png" type="Texture" id=4]
+[ext_resource path="res://src/imagesForPage/MainPage.png" type="Texture" id=5]
+[ext_resource path="res://src/Screens/EndScreen.gd" type="Script" id=6]
+[ext_resource path="res://src/themes/theme12.tres" type="Theme" id=8]
+[ext_resource path="res://src/themes/theme6.tres" type="Theme" id=9]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 320, 180 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 320, 0, 320, 180 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 180, 320, 180 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 320, 180, 320, 180 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 360, 320, 180 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
+region = Rect2( 320, 360, 320, 180 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 540, 320, 180 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 4 )
+region = Rect2( 320, 540, 320, 180 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 10.0
+} ]
+
+[node name="EndScreen" type="Control"]
+margin_right = 320.0
+margin_bottom = 180.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 0.529724
+margin_top = 0.883276
+margin_right = 320.53
+margin_bottom = 181.883
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimWind" type="AnimatedSprite" parent="."]
+position = Vector2( 160, 90 )
+frames = SubResource( 9 )
+animation = "New Anim"
+frame = 4
+playing = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -20.0
+margin_right = 50.0
+margin_bottom = 58.0
+rect_pivot_offset = Vector2( 50, 0 )
+theme = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn_Play" parent="VBoxContainer" instance=ExtResource( 3 )]
+margin_right = 100.0
+margin_bottom = 37.0
+text = "play Again"
+next_scene_path = "res://src/Screens/MainScreen.tscn"
+
+[node name="btn_Quit" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 41.0
+margin_right = 100.0
+margin_bottom = 78.0
+
+[node name="Label" parent="." instance=ExtResource( 1 )]
+margin_left = -121.197
+margin_top = 11.2315
+margin_right = 121.803
+margin_bottom = 34.8315
+theme = ExtResource( 8 )
+text = "Congratulations
+You finished the Game"
+
+[node name="Label2" parent="." instance=ExtResource( 1 )]
+margin_left = -121.197
+margin_top = 45.6769
+margin_right = 121.803
+margin_bottom = 69.2769
+theme = ExtResource( 9 )
+text = "Score 		: %s."
+
+[node name="Label3" parent="." instance=ExtResource( 1 )]
+margin_left = -121.197
+margin_top = 55.1405
+margin_right = 121.803
+margin_bottom = 78.7405
+theme = ExtResource( 9 )
+text = "Times 	: %s."
